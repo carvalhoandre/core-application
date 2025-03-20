@@ -1,3 +1,3 @@
 import Technology from './Technology'
 
-export {Technology }
+export { Technology }
