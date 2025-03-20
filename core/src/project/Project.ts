@@ -4,13 +4,12 @@ import { Type} from './Type'
 
 
 export default interface Project {
-    id:           number
-    name:         string
-    description:  string
-    images:       string[]
-    type:         Type
-    nivel:        Nivel
-    repository:   string
-    emphasis:     boolean      
-    technologies: Technology[]
+    id: number; 
+    name: string; 
+    description: string; 
+    images: string[]; 
+    type: Type; 
+    nivel: Nivel; 
+    emphasis: boolean; 
+    technology: Technology[];
 }
