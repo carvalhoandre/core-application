@@ -1,0 +1,4 @@
+{
+    "typescript": "npx tsx",
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+}
