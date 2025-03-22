@@ -1,24 +1,31 @@
-#Dockerfile
-
 FROM node:20-alpine as builder
 
 ENV NODE_ENV build
 
 USER node
 
-# WORKDIR /home/node/core
-# COPY core/*.json ./
-# RUN npm ci
+# Construindo o módulo @core primeiro
+WORKDIR /home/node/core
+COPY core/package*.json ./
+RUN npm ci
+COPY --chown=node:node core/tsconfig*.json ./
+COPY --chown=node:node core/src ./src
+RUN npm run build
 
+# Backend com NestJS
 WORKDIR /home/node/backend
-
-COPY backend/*.json ./
+COPY backend/package*.json ./
 RUN npm ci
 
-WORKDIR /home/node
-COPY --chown=node:node . .
+# Copiando arquivos necessários do backend
+COPY --chown=node:node backend/prisma ./prisma
+COPY --chown=node:node backend/tsconfig*.json ./
+COPY --chown=node:node backend/src ./src
 
-WORKDIR /home/node/backend
+# Copiando o build do @core para dentro do node_modules do backend
+RUN cp -r /home/node/core/dist /home/node/backend/node_modules/@core
+
+# Gerando Prisma e buildando backend
 RUN npx prisma generate \
     && npm run build \
     && npm prune --omit=dev
@@ -32,9 +39,8 @@ ENV NODE_ENV production
 USER node
 WORKDIR /home/node
 
-COPY --from=builder --chown=node:node /home/node/package*.json ./
-COPY --from=builder --chown=node:node /home/node/node_modules/ ./node_modules/
-COPY --from=builder --chown=node:node /home/node/backend/dist/ ./dist/
-# COPY --from=builder --chown=node:node /home/node/prisma/ ./prisma/
+COPY --from=builder --chown=node:node /home/node/backend/package*.json ./
+COPY --from=builder --chown=node:node /home/node/backend/node_modules ./node_modules/
+COPY --from=builder --chown=node:node /home/node/backend/dist ./dist/
 
-CMD ["node", "dist//backend/src/main.js"]
+CMD ["node", "dist/src/main.js"]
