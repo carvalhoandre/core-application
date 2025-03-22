@@ -6,7 +6,7 @@ interface TechnologiesWorkedProps {
 
 const TechnologiesWorked = ({ technologies }: TechnologiesWorkedProps) => {
   return (
-    <div className="flex justify-center items-center p-6 w-full lg:w-72 bg-black rounded-2xl border-zinc-800">
+    <div className="flex justify-center items-center p-6 w-full lg:w-72 bg-black border border-zinc-800 rounded-2xl">
       <div className="flex justify-center gap-x-3 flex-wrap">
         {technologies.map((technology) => (
           <div key={technology.id}>

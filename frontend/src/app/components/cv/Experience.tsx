@@ -11,7 +11,7 @@ const Item = (props: { emphasis: string; label: string }) => {
 
 const Experience = () => {
   return (
-    <div className="flex flex-col sm:flex-row lg:flex-col items-center justify-around gap-6 p-6 bg-black rounded-2xl border-zinc-800">
+    <div className="flex flex-col sm:flex-row lg:flex-col items-center justify-around gap-6 p-6 bg-black border border-zinc-800 rounded-2xl">
       <Item emphasis="+150" label="países atentidos" />
       <Item emphasis="+20" label="anos de experiência" />
       <Item emphasis="420k" label="alunos matriculados" />
