@@ -1,10 +1,10 @@
-import { getTechnologies } from "../services/technologies";
+import { getTechnologies } from "../../services/technologies";
 
 import Cv from "../components/cv";
 import Main from "../components/landing/Main";
 import Container from "../components/shared/Container";
 import ProjectsList from "../components/projects/List";
-import { getProjects } from "../services/projects";
+import { getProjects } from "../../services/projects";
 
 export default async function Home() {
   const technologies = await getTechnologies();

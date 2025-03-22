@@ -1,10 +1,13 @@
+'use client';
+
 import Readme from "@/app/components/projects/Readme";
+
 import Carrossel from "@/app/components/shared/Carrossel";
 import Container from "@/app/components/shared/Container";
 import Header from "@/app/components/shared/Header";
 import Technologies from "@/app/components/technologies/inde";
-import { getReadme } from "@/app/services/github";
-import { getProject } from "@/app/services/projects";
+import { getReadme } from "@/services/github";
+import { getProject } from "@/services/projects";
 
 const PageProject = async (props: { params: Promise<{ id: string }> }) => {
   const { id } = await props.params;
