@@ -14,7 +14,7 @@ export default async function Home() {
     <>
       <Main technologies={technologies.emphasis} />
 
-      <Container className="py-16 flex flex-col gap-8">
+      <Container className="py-16 flex flex-col items-center gap-10">
         <ProjectsList title="Destaques" projects={projects.emphasis} />
         <ProjectsList title="Mobile" projects={projects.mobile} />
         <ProjectsList title="Web" projects={projects.web} />
