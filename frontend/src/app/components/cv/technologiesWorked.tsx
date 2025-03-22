@@ -1,17 +1,15 @@
 import { Technology } from "@core";
 
-interface TechnologiesProps {
+interface TechnologiesWorkedProps {
   technologies: Technology[];
 }
 
-const Technologies = ({ technologies }: TechnologiesProps) => {
+const TechnologiesWorked = ({ technologies }: TechnologiesWorkedProps) => {
   return (
     <div className="flex justify-center items-center p-6 w-full lg:w-72 bg-black rounded-2xl border-zinc-800 ">
       <div className="flex justify-center gap-x-3 flex-wrap">
         {technologies.map((technology) => (
           <div key={technology.id}>
-
-
             <span className="text-red-500 font-bold">#</span>
             <span className="text-sm">{technology.name}</span>
           </div>
@@ -21,4 +19,4 @@ const Technologies = ({ technologies }: TechnologiesProps) => {
   );
 };
 
-export default Technologies;
+export default TechnologiesWorked;

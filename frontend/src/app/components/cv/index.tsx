@@ -1,5 +1,5 @@
 import { Technology } from "@core";
-import Technologies from "./technologies";
+import TechnologiesWorked from "./technologiesWorked";
 
 interface CvProps {
   technologies: Technology[];
@@ -10,7 +10,7 @@ const Cv = ({ technologies }: CvProps) => {
 
   return (
     <div>
-      <Technologies technologies={technologies} />
+      <TechnologiesWorked technologies={technologies} />
     </div>
   );
 };
