@@ -1,0 +1,21 @@
+{
+  "name": "core-application",
+  "version": "1.0.0",
+  "description": "test application for web architecture - backend - n8n and CORE application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx concurrently \"cd backend && npm run start\" \"cd frontend && npm run dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carvalhoandre/core-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/carvalhoandre/core-application/issues"
+  },
+  "homepage": "https://github.com/carvalhoandre/core-application#readme"
+}
