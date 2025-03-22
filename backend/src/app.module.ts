@@ -7,6 +7,5 @@ import { TechnologyModule } from './technology/technology.module';
 @Module({
   imports: [DbModule, ProjectModule, TechnologyModule],
   controllers: [AppController],
-  providers: [],
 })
 export class AppModule {}
