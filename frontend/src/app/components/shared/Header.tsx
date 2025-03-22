@@ -5,7 +5,7 @@ import Menu from "./Menu";
 
 const Header = () => {
   return (
-    <header className="bg-red-500 flex items-center h-16  text-white">
+    <header className="w-full bg-black/50 flex items-center h-16  text-white">
       <Container className="flex-1 flex justify-between items-center">
         <div className="flex gap-10 items-center">
           <Link href="/" className="hidden sm:block">

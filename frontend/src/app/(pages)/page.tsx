@@ -1,9 +1,19 @@
-import Header from "../components/shared/Header";
+import { getTechnologies } from "../services/technologies";
 
-export default function Home() {
+import Cv from "../components/cv";
+import Main from "../components/landing/Main";
+import Container from "../components/shared/Container";
+
+export default async function Home() {
+  const technologies = await getTechnologies();
+
   return (
     <>
-      <Header />
+      <Main />
+
+      <Container className="py-16">
+        <Cv technologies={technologies.all} />
+      </Container>
     </>
   );
 }

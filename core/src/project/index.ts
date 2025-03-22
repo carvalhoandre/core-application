@@ -1,6 +1,5 @@
 import { Nivel } from './Nivel'
 import { Type } from './Type'
-import Project from './Project'
 
-export type { Project }
 export { Nivel, Type }
+export type { default as Project } from './Project';

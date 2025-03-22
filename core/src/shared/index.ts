@@ -1,3 +1,1 @@
-import Id from './Id'
-
-export { Id }
+export type { default as Id } from './Id';

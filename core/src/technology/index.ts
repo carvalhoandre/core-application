@@ -1,3 +1,1 @@
-import Technology from './Technology'
-
-export { Technology }
+export type { default as Technology } from './Technology';
