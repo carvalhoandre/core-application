@@ -11,4 +11,5 @@ export default interface Project {
 	nivel: Nivel;
 	emphasis: boolean;
 	technologies: Technology[];
+  repository: string;
 }
