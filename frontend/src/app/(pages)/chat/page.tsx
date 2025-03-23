@@ -1,20 +1,14 @@
 "use client";
 
 import useChat from "@/hooks/useChat";
-import { useState, useEffect } from "react";
-import { Id } from "@core";
+import { useState } from "react";
 import ContentMD from "@/app/components/shared/ContentMD";
+import Image from "next/image";
 
 const ChatPage = () => {
-  const { chatId, messages, loading, handleAddMessage, clearChat, setChatId } =
+  const { chatId, messages, loading, handleAddMessage, clearChat } =
     useChat();
   const [text, setText] = useState("");
-
-  useEffect(() => {
-    if (!chatId) {
-      setChatId(Id.create());
-    }
-  }, []);
 
   return (
     <div>
@@ -33,7 +27,7 @@ const ChatPage = () => {
       </ul>
 
       {loading && (
-        <img src="/pensando.gif" alt="Pensando" width={50} height={50} />
+        <Image src="/pensando.gif" alt="Pensando" width={50} height={50} />
       )}
       <h2>Escreva sua mensagem</h2>
 

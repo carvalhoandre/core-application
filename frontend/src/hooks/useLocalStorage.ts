@@ -1,31 +1,15 @@
-import React from "react";
+"use client"
+import { useEffect, useState } from "react"
 
-export default function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = React.useState<T>(() => {
-    try {
-      const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
-    } catch {
-      return initialValue;
-    }
-  });
+export default function useLocalStorage<T>(chave: string, valorInicial: T) {
+	const [valor, setValor] = useState<T>(() => {
+		const valorLocal = localStorage.getItem(chave)
+		return valorLocal ? JSON.parse(valorLocal) : valorInicial
+	})
 
-  React.useEffect(() => {
-    localStorage.setItem(key, JSON.stringify(storedValue));
-  }, [key, initialValue]);
+	useEffect(() => {
+		localStorage.setItem(chave, JSON.stringify(valor))
+	}, [chave, valor])
 
-  const setValue = React.useCallback(
-    (value: T) => {
-      try {
-        setStoredValue(value);
-        window.localStorage.setItem(key, JSON.stringify(value));
-      } catch {
-        console.error(`Could not set item to local storage with key ${key}`);
-      }
-    },
-    [key]
-  );
-
-  return [storedValue, setValue] as const;
-
+	return [valor, setValor] as const
 }

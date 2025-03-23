@@ -5,7 +5,7 @@ import toTalk from "@/services/chat";
 import { useState } from "react";
 
 export default function useChat() {
-  const [chatId, setChatId] = useLocalStorage<string>("chatId", Id.create());
+  const [chatId] = useLocalStorage<string>("chatId", Id.create());
   const [messages, setMessages] = useLocalStorage<Message[]>("messages", []);
   const [loading, setLoading] = useState(false);
 
@@ -18,10 +18,9 @@ export default function useChat() {
         text,
         author: "Visitor",
         side: "right",
-        icon: null,
       };
 
-      setMessages([...messages, newMessage]);
+      setMessages((msgs) => [...msgs, newMessage])
       const response = await toTalk(chatId, newMessage);
 
       if (!response) return null;
@@ -31,10 +30,9 @@ export default function useChat() {
         text: response,
         author: "Bot",
         side: "left",
-        icon: null,
       };
 
-      setMessages([...messages, botMessage]);
+			setMessages((msgs) => [...msgs, botMessage])
     } catch (error) {
       console.error(error);
     } finally {
@@ -51,7 +49,6 @@ export default function useChat() {
     messages,
     loading,
     clearChat,
-    setChatId,
     setMessages,
     handleAddMessage,
   };
