@@ -1,1 +1,1 @@
-export type { default as Id } from './Id';
+export { default as Id } from './Id';

@@ -1,13 +1,12 @@
 import { Project } from "@core";
 import ProjectItem from "./Item";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Car } from "lucide-react";
+	Carousel,
+	CarouselContent,
+	CarouselItem,
+	CarouselNext,
+	CarouselPrevious,
+} from "../ui/carousel"
 
 interface ProjectsListProps {
   title: string;

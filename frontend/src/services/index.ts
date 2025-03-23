@@ -6,7 +6,6 @@ export async function httpGet<T>(
   url: string,
   options?: RequestInit
 ): Promise<T> {
-  console.log("httpGet", API_URL);
   const response = await fetch(`${API_URL}/${normalizeUrl(url)}`, {
     ...options,
     headers: {
