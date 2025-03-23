@@ -1,5 +1,3 @@
-'use client';
-
 import Readme from "@/app/components/projects/Readme";
 
 import Carrossel from "@/app/components/shared/Carrossel";
@@ -20,7 +18,6 @@ const PageProject = async (props: { params: Promise<{ id: string }> }) => {
   return (
     <div className="bg-black ">
       <Header />
-
 
       <Container className="py-7 flex flex-col gap-10">
         <h1 className="text 3xl font-bold self-start">{project.name}</h1>
